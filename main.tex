@@ -1,0 +1,100 @@
+\documentclass[11pt,a4paper]{article}
+
+% 余白と基本体裁
+\usepackage[left=15mm,right=15mm,top=15mm,bottom=15mm]{geometry}
+\usepackage{enumitem}       % 箇条書きの余白調整
+\usepackage[colorlinks]{hyperref}
+\hypersetup{%
+urlcolor=black,    % URL の色
+citecolor=blue,   % 引用の色
+}
+\usepackage{tabularx}        % 自動幅調整
+\setlength{\tabcolsep}{3pt}  % 列間余白をぎりぎりまで詰める
+\renewcommand{\arraystretch}{1.6} % 行送り少しゆったり
+
+% ─────────── Biblatex 設定 ───────────
+\usepackage[
+  backend=biber,
+  style=numeric,        % [1] Soichiro Fujii ... の感じ
+  sorting=ydnt,         % 年 ↓, 著者昇順
+  maxbibnames=99,       % 省略しない
+  giveninits=true,       % イニシャル表記を抑止
+  defernumbers=true,      % 引用順に並べる
+]{biblatex}
+\addbibresource{bibliography.bib}  % ←自分の .bib
+
+% DOI／URL を最後に付けたいだけなら標準マクロで充分
+\AtEveryBibitem{\clearname{editor}}  % editor は消す例
+
+% ─────────── CV 用マクロ (任意) ───────────
+\newcommand*{\cvsection}[1]{%
+  \vspace{1.2\baselineskip}% 章間の余白（好みで調整）
+  {\raggedright          % flushleft（折り返しは右端を揃えない）
+   \bfseries\large       % 太字＋\large ＝ \normalsize より一回り大
+   #1\par}               % 見出しテキスト
+  \vspace{0.4\baselineskip}%
+}
+\setlist[itemize]{leftmargin=*,label={},topsep=0pt,parsep=0pt}
+
+\begin{document}
+
+
+
+
+\begin{center}\large\bfseries Curriculum Vitae\footnote{Last updated: \today}
+\\
+\rm Keisuke Hoshino
+\end{center}
+\noindent %
+\cvsection{Contact details}
+\vspace{-1em}%
+\noindent %
+Division of Mathematics and Mathematical Sciences, Faculty of Science, Kyoto University,
+\\
+\href{mailto:hosiksk215@gmail.com}{hosiksk215@gmail.com}
+
+
+\cvsection{Education}
+\begin{tabularx}{\textwidth}{@{}lp{140mm}}
+  2023--
+  &
+  Ph.D.\ course in Division of Mathematics and Mathematical Sciences, Faculty of Science, Kyoto University.
+  \\
+  2021--2023
+  &
+  Master's course in Division of Mathematics and Mathematical Sciences, Faculty of Science, Kyoto University.
+  \\&
+  Thesis title : \textit{Towards structures of higher dimensional categories}
+  \\
+  2017--2021
+  &
+  Undergraduate course in Faculty of Science, Kyoto University.
+\end{tabularx}
+
+\cvsection{Publications}
+\begin{refsection}                      % ← 他所で引用しても干渉しない
+  \nocite{*} % ← すべての文献を表示
+  \printbibliography[heading=none,keyword=published,resetnumbers=true]
+\end{refsection}
+
+\cvsection{Preprints}
+\begin{refsection}
+\nocite{*} % ← すべての文献を表示
+  \printbibliography[heading=none,keyword=preprint,resetnumbers=true]
+\end{refsection}
+
+\cvsection{Talks}
+(Invited)
+\begin{refsection}
+\nocite{*} % ← すべての文献を表示
+  \printbibliography[heading=none,keyword=iv-talk,resetnumbers=true]
+\end{refsection}
+
+(non-refereed)
+\begin{refsection}
+\nocite{*} % ← すべての文献を表示
+  \printbibliography[heading=none,keyword=nr-talk,resetnumbers=true]
+\end{refsection}
+
+\end{document}
+

@@ -1,0 +1,17 @@
+*.dvi
+*.aux
+*.log
+*.toc
+*.pdf
+*.bbl*
+*.blg
+*.bcf*
+*.out
+*.fdb_latexmk
+*.fls
+*.xml
+*.synctex*
+*.vim
+*.ltd
+storehouse.tex
+.DS_Store
