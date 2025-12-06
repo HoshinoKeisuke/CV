@@ -13,6 +13,5 @@
 *.synctex*
 *.vim
 *.ltd
-*.latexmkrc
 storehouse.tex
 .DS_Store
