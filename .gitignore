@@ -12,6 +12,7 @@
 *.xml
 *.synctex*
 *.vim
+*.sh
 *.ltd
 .latexmkrc
 storehouse.tex
