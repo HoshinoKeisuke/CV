@@ -1,13 +1,15 @@
-\documentclass[a4paper,dvipsnames,11pt,backend=luatex]{article} %lualatex
+\documentclass[a4paper,11pt,backend=luatex]{article} %lualatex
 \usepackage{luatexja}
 
 % 余白と基本体裁
 \usepackage[left=15mm,right=15mm,top=15mm,bottom=15mm]{geometry}
 \usepackage{enumitem}       % 箇条書きの余白調整
+\usepackage{needspace}      % 見出し直後の孤立を防ぐ
 \usepackage[colorlinks]{hyperref}
 \hypersetup{%
 urlcolor=black,    % URL の色
 citecolor=blue,   % 引用の色
+linkcolor=black,  % 文書内リンクの色
 }
 \usepackage{tabularx}        % 自動幅調整
 \setlength{\tabcolsep}{3pt}  % 列間余白
@@ -29,6 +31,7 @@ citecolor=blue,   % 引用の色
 
 % ─────────── CV 用マクロ (任意) ───────────
 \newcommand*{\cvsection}[1]{%
+  \Needspace{5\baselineskip}%
   \vspace{1.2\baselineskip}% 章間の余白（好みで調整）
   {\raggedright          % flushleft（折り返しは右端を揃えない）
    \bfseries\large       % 太字＋\large ＝ \normalsize より一回り大
@@ -50,7 +53,7 @@ citecolor=blue,   % 引用の色
 \cvsection{Contact details}
 \vspace{-1em}%
 \noindent %
-Division of Mathematics and Mathematical Sciences, Faculty of Science, Kyoto University,
+Research Institute for Mathematical Sciences (RIMS), Kyoto University,
 \\
 Kitashirakawa Oiwake-chō, Sakyō-ku, Kyoto-shi,
 Kyoto 606-8502  
@@ -60,41 +63,49 @@ Email 1: \href{mailto:hosiksk215@gmail.com}{hosiksk215@gmail.com}
 \\
 Email 2: \href{mailto:hoshinok@kurims.kyoto-u.ac.jp}{hoshinok@kurims.kyoto-u.ac.jp}
 \\
+ORCID: \href{https://orcid.org/0009-0007-7287-7572}{https://orcid.org/0009-0007-7287-7572}
+\quad
 Phone: +81 80-5456-5530
 
 
-\cvsection{Fundings}
-\begin{tabularx}{\textwidth}{@{}lp{140mm}}
+\cvsection{Employment}
+\noindent\begin{tabularx}{\textwidth}{@{}lX@{}}
+  Apr.\ 2026--present
+  &
+  Researcher (part-time), RIMS, Kyoto University.
+\end{tabularx}
+
+
+\cvsection{Funding}
+\noindent\begin{tabularx}{\textwidth}{@{}lX@{}}
   2023--2026
   &
-  JSPS Research Fellowship for Young Scientists (DC1)
+  JSPS Research Fellowship for Young Scientists (DC1), JSPS KAKENHI Grant No.\ JP23KJ1365.
 \end{tabularx}
 
 \cvsection{Education}
-\begin{tabularx}{\textwidth}{@{}lp{140mm}}
-  2023--
+\noindent\begin{tabularx}{\textwidth}{@{}lX@{}}
+  2023--2026
   &
-  Ph.D.\ course in Division of Mathematics and Mathematical Sciences, Faculty of Science, Kyoto University.
+  Ph.D.\ in Science, Graduate School of Science, Kyoto University.
   \vspace{-0.5em}
   \\&
-  Expected completion : {March 2026}
+  Thesis title: \textit{A Homotopy Theory of Algebraic Higher Categories}
   \\&
-  Thesis title : \textit{A Homotopy Theory of Algebraic Higher Categories}
-  \\&
-  Supervisor : {Masahito Hasegawa}
+  Supervisor: {Masahito Hasegawa}
   \\
   2021--2023
   &
-  Master's course in Division of Mathematics and Mathematical Sciences, Faculty of Science, Kyoto University.
+  M.Sc., Graduate School of Science, Kyoto University.
   \vspace{-0.5em}
   \\&
-  Thesis title : \textit{Towards structures of higher dimensional categories}
+  Thesis title: \textit{Towards structures of higher dimensional categories}
   \\&
-  Supervisor : {Masahito Hasegawa}
+  Supervisor: {Masahito Hasegawa}
   \\
   2017--2021
   &
-  Undergraduate course in Faculty of Science, Kyoto University.
+  B.Sc., Faculty of Science, Kyoto University.
 \end{tabularx}
 
 \cvsection{Publications}
@@ -123,8 +134,8 @@ Phone: +81 80-5456-5530
 \end{refsection}
 
 
-\cvsection{Teaching experiences}
-\begin{tabularx}{\textwidth}{@{}lp{140mm}}
+\cvsection{Teaching Experience}
+\noindent\begin{tabularx}{\textwidth}{@{}lX@{}}
   2021
   &
   Teaching assistant in Faculty of Science, Kyoto University.
