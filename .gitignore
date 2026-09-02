@@ -16,3 +16,7 @@
 .latexmkrc
 storehouse.tex
 .DS_Store
+/coverletters/
+
+# Standalone Biber (PAR::Packer) extraction cache
+/par-*/
