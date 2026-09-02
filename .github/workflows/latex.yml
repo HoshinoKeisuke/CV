@@ -23,6 +23,7 @@ jobs:
           root_file:
             main.tex
           latexmk_use_lualatex: true
+          pre_compile: export TZ=JST-9
       - name: Push PDF file
         run: |
           git add --all
