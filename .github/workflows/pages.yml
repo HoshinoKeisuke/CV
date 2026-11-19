@@ -1,0 +1,43 @@
+name: Publish CV PDF
+
+on:
+  workflow_run:
+    workflows: ["LaTeX compilation"]
+    branches: [main]
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publish-cv
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: pdf
+          persist-credentials: false
+      - name: Prepare the compiled CV
+        run: install -D -m 644 main.pdf public/keisuke-hoshino.pdf
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.pages.outputs.page_url }}keisuke-hoshino.pdf
+    steps:
+      - id: pages
+        uses: actions/deploy-pages@v5
